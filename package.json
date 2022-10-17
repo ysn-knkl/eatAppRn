@@ -10,9 +10,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-firebase/app": "^15.7.0",
+    "@react-native-firebase/firestore": "^15.7.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.2",
     "@reduxjs/toolkit": "^1.8.6",
+    "lottie-ios": "3.4.0",
+    "lottie-react-native": "^5.1.4",
     "react": "18.0.0",
     "react-native": "0.69.1",
     "react-native-bouncy-checkbox": "^3.0.5",
