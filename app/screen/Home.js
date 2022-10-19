@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import { Divider } from "react-native-elements";
 import BottomTabs from "../components/home/BottomTabs";
 import Categories from "../components/home/Categories";
@@ -8,7 +8,7 @@ import RestaurantItems, {
   localRestaurants,
 } from "../components/home/RestaurantItems";
 import SearchBar from "../components/home/SearchBar";
-import {YELP_API_KEY, YELP_BASE_URL} from "react-native-dotenv"
+import { YELP_API_KEY, YELP_BASE_URL } from "react-native-dotenv";
 
 export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
@@ -40,8 +40,8 @@ export default function Home({ navigation }) {
   }, [city, activeTab]);
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
-      <View style={{ backgroundColor: "white", padding: 15 }}>
+    <SafeAreaView style={style.safeArea}>
+      <View style={style.headerContainer}>
         <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <SearchBar setCity={setCity} />
       </View>
@@ -53,7 +53,18 @@ export default function Home({ navigation }) {
         />
       </ScrollView>
       <Divider width={1} />
-      <BottomTabs />
+      <BottomTabs  navigation={navigation}/>
     </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#eee",
+  },
+  headerContainer: {
+    backgroundColor: "white",
+    padding: 15,
+  },
+});

@@ -612,11 +612,19 @@ PODS:
     - React-Core (= 0.69.1)
     - React-jsi (= 0.69.1)
     - ReactCommon/turbomodule/core (= 0.69.1)
+  - Firebase/Auth (9.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 9.6.0)
   - Firebase/CoreOnly (9.6.0):
     - FirebaseCore (= 9.6.0)
   - Firebase/Firestore (9.6.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 9.6.0)
+  - FirebaseAuth (9.6.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
   - FirebaseCore (9.6.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
@@ -648,11 +656,21 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.8.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
   - GoogleUtilities/Environment (7.8.0):
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.8.0):
     - GoogleUtilities/Environment
+  - GoogleUtilities/Network (7.8.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.8.0)"
+  - GoogleUtilities/Reachability (7.8.0):
+    - GoogleUtilities/Logger
   - "gRPC-C++ (1.44.0)":
     - "gRPC-C++/Implementation (= 1.44.0)"
     - "gRPC-C++/Interface (= 1.44.0)"
@@ -704,6 +722,7 @@ PODS:
     - gRPC-Core/Interface (= 1.44.0)
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
+  - GTMSessionFetcher/Core (2.1.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
     - Libuv-gRPC/Implementation (= 0.0.10)
@@ -1005,6 +1024,10 @@ PODS:
   - RNFBApp (15.7.0):
     - Firebase/CoreOnly (= 9.6.0)
     - React-Core
+  - RNFBAuth (15.7.0):
+    - Firebase/Auth (= 9.6.0)
+    - React-Core
+    - RNFBApp
   - RNFBFirestore (15.7.0):
     - Firebase/Firestore (= 9.6.0)
     - React-Core
@@ -1053,6 +1076,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
+  - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -1063,6 +1087,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - Firebase
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreInternal
@@ -1072,6 +1097,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - GTMSessionFetcher
     - leveldb-library
     - Libuv-gRPC
     - nanopb
@@ -1148,6 +1174,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
+  RNFBAuth:
+    :path: "../node_modules/@react-native-firebase/auth"
   RNFBFirestore:
     :path: "../node_modules/@react-native-firebase/firestore"
   RNGestureHandler:
@@ -1165,6 +1193,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 068141206af867f72854753423d0117c4bf53419
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
+  FirebaseAuth: e4a5d3c36e778e41141b91cc861103a441d80bcc
   FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
@@ -1175,6 +1204,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
+  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   lottie-ios: 69495122151a378fdc7d1bb4c5930347e37baf1f
@@ -1209,6 +1239,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 27f468c5576eaf05ffb7a907528e44c75a3fcbae
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
   RNFBApp: ad6ad2dd37ccf10e737ec8688208761026331d64
+  RNFBAuth: 26fb3495911fcb6c201a4a18fb7bede51d1d0199
   RNFBFirestore: 89d7adb8138384f134e722c2dc883084f7e2808f
   RNGestureHandler: b7a872907ee289ada902127f2554fa1d2c076122
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8

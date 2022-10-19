@@ -5,18 +5,6 @@ import { Divider } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../../redux/features/cartSlice";
 
-const styles = StyleSheet.create({
-  menuItemStyle: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 20,
-  },
-
-  titleStyle: {
-    fontSize: 19,
-    fontWeight: "600",
-  },
-});
 
 const foods = [
   {
@@ -129,3 +117,16 @@ const FoodImage = ({ marginLeft, ...props }) => (
     />
   </View>
 );
+
+const styles = StyleSheet.create({
+  menuItemStyle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    margin: 20,
+  },
+
+  titleStyle: {
+    fontSize: 19,
+    fontWeight: "600",
+  },
+});
